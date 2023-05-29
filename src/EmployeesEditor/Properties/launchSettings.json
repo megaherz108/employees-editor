@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EmployeesEditor": {
+      "commandName": "Project",
+      "commandLineArgs": "-getall"
+    }
+  }
+}
