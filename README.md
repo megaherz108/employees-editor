@@ -1,24 +1,35 @@
-# Тестовое приложение
+# Example C# application
 
-### Задача: создать консольное приложение, обрабатывающее текстовый файл, содержащий список сотрудников в формате JSON. Формат записи о сотруднике:
+### Specification
 
-- столбец Id, тип в C# - int;
-- столбец FirstName, тип в C# - string;
-- столбец LastName, тип в C# - string;
-- столбец SalaryPerHour, тип в C# - decimal.
+Console application should handle text file with a list of employees in JSON.
 
-Приложение принимает входные аргументы (в string[] args метода Main), и на их основе выполняет соответствующую операцию.
+Employee record format:
+- Id, int
+- FirstName, string
+- LastName, string
+- SalaryPerHour, decimal.
 
-Доступны следующие аргументы и операции:
+Application gets input arguments (from **string[] args** of method Main) and performs appropriate operation.
+
+The following arguments and operations are allowed:
 
 1. -**add FirstName:John LastName:Doe SalaryPerHour:100.50.**
-Добавляет в файл новую запись. Поля FirstName, LastName и SalaryPerHour заполняются из аргументов (John, Doe, 100.50). Поле Id генерируется автоматически по следующему принципу: самое большое значение столбца Id, из всех имеющихся в файле, + 1.
+
+   Adds a new record to a file. Fields FirstName, LastName and SalaryPerHour are filled from arguments. Field Id is generated automatically based on Id field value of previous record (plus one).
+    
 2. **-update Id:123 FirstName:James**
-Обновляет запись с Id=123, меняет в нем поле FirstName на указанное (James). Таким образом можно обновлять любые поля, кроме Id. Если не существует записи с таким Id, в консоль выводится строка, сообщающая об ошибке (текст ошибки - на усмотрение разработчика).
+
+   Updates record with Id=123 and changes field FirstName to a new value. Any field can be updated except Id. If there is no record with specified Id, an error should be shown in the console.
+
 3. **-get Id:123**
-Выводит в консоль строку формата «Id = {Id}, FirstName = {FirstName}, LastName = {LastName}, SalaryPerHour = {SalaryPerHour}», вместо {Id}, {FirstName}, {LastName}, {SalaryPerHour} должны быть подставлены соответствующие поля из записи с Id=123 из файла. Если не существует записи с таким Id, в консоль выводится строка, сообщающая об ошибке (текст ошибки - на усмотрение разработчика).
+
+   Outputs a string of format «Id = {Id}, FirstName = {FirstName}, LastName = {LastName}, SalaryPerHour = {SalaryPerHour}» with appropriate values from a record with specified Id. If there is no record with   specified Id, an error should be shown in the console.
+
 4. **-delete Id:123**
-Удаляет запись с Id=123 из файла. Если не существует записи с таким Id, в консоль выводится строка, сообщающая об ошибке (текст ошибки - на усмотрение разработчика).
+
+   Deletes a record with Id=123 from file. If there is no record with specified Id, an error should be shown in the console.
+
 5. **-getall**
 
-Возвращает список всех сотрудников (формат аналогичен приведенному в описании аргумента -get).
+   Returns a list of all employees. Format is the same as specified for -get command.
